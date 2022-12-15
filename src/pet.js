@@ -15,6 +15,8 @@ const MIN_FITNESS = 0;
 const MAX_HUNGER = 20;
 const MIN_HUNGER = 0;
 
+const MAX_LEVEL = 50;
+
 function Alien(name) {
   this.name = name;
   this.species = speciesList[Math.floor(Math.random() * speciesList.length)];
@@ -26,14 +28,22 @@ function Alien(name) {
   this.specialAbilities = [];
 }
 
+Alien.prototype.isAlive = function () {
+  return (
+    this.level < MAX_LEVEL &&
+    this.hunger < MAX_HUNGER &&
+    this.fitness > MIN_FITNESS
+  );
+};
+
 Alien.prototype.levelUp = function () {
   // Increment the level property by 1
   this.level++;
   // Decrement the fitness property by 3
   this.fitness -= 3;
 
-  // If the level is divisible by 7, assign a new ability to the alien
-  if (this.level % 7 === 0) {
+  // If the level is divisible by 5, assign a new ability to the alien
+  if (this.level % 5 === 0) {
     // Generate a random number between 0 and 19
     let randomNumber = Math.floor(Math.random() * 20);
 
@@ -127,6 +137,10 @@ if (this.fitness > MAX_FITNESS) {
 }
 
 Alien.prototype.feed = function () {
+  // Throws error if Alien is dead //
+  if (!this.isAlive) {
+    throw new Error("Your Alien is not alive!");
+  }
   // Decreases the hunger level by 3 //
   this.hunger -= 3;
   // Decreases Fitness level by 1 //
@@ -163,7 +177,7 @@ Alien.prototype.checkUp = function () {
     );
   } else if (this.fitness <= 5) {
     console.log(
-      `${this.name} is getting fat! ${this.name} says: '${fatMessage}'`
+      `${this.name} is getting fat and could do with a fly! ${this.name} says: '${fatMessage}'`
     );
   } else if (this.health <= 15) {
     console.log(

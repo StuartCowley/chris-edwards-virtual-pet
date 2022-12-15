@@ -49,4 +49,10 @@ describe("feed", () => {
     // decreased by 3
     expect(alien.hunger).toEqual(initialHunger - 3);
   });
+
+  it("throws an error if the pet is not alive", () => {
+    const alien = new Alien("Jeff");
+    alien.level = 50;
+    expect(() => alien.feed()).toThrow("Your Alien is not alive!");
+  });
 });
