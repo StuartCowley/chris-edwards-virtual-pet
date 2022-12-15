@@ -1,4 +1,11 @@
-const { speciesList, specialAbilities } = require("./speciesList.js");
+const {
+  speciesList,
+  specialAbilities,
+  checkUpMessage,
+  tooFat,
+  lowHealthMessage,
+  needsFood,
+} = require("./speciesList.js");
 
 // Min and Max Stats //
 
@@ -65,11 +72,15 @@ Alien.prototype.levelUp = function () {
 
   // If the hunger property is at its maximum value of 20, warn that the alien needs to eat humans
   if (this.hunger === MAX_HUNGER) {
-    console.log(this.name + " is starving and needs to eat humans!");
+    console.log(
+      "WARNING: " + this.name + " is starving and needs to eat some humans!"
+    );
   }
   // if fitness level is 0 display message warning that alien is fat //
   if (this.fitness <= 0) {
-    console.log("WARNING: alien is a fatty and needs to loose some weight");
+    console.log(
+      "WARNING: " + this.name + " is a fatty and needs to loose some weight!"
+    );
   }
 
   // If the hunger level is below 0, set it to 0
@@ -125,6 +136,43 @@ Alien.prototype.feed = function () {
     console.log(this.name + " is still hungry!");
   } else {
     console.log(this.name + " is full!");
+  }
+};
+
+Alien.prototype.checkUp = function () {
+  const fatMessage = tooFat[Math.floor(Math.random() * tooFat.length)];
+  const hungryMessage = needsFood[Math.floor(Math.random() * needsFood.length)];
+  const message =
+    checkUpMessage[Math.floor(Math.random() * checkUpMessage.length)];
+  const HP_message =
+    lowHealthMessage[Math.floor(Math.random() * lowHealthMessage.length)];
+
+  console.log(`"${message}"`);
+
+  if (this.fitness <= 5 && this.hunger >= 7) {
+    console.log(
+      `${this.name} is getting fat & hungry! ${this.name} says: '${fatMessage} but ${hungryMessage}'`
+    );
+  } else if (this.fitness <= 5 && this.health <= 15) {
+    console.log(
+      `${this.name} is getting fat & is low on health! ${this.name} says: '${fatMessage} and ${HP_message}'`
+    );
+  } else if (this.hunger <= 5 && this.health <= 15) {
+    console.log(
+      `${this.name} is hungry & is low on health! ${this.name} says: '${hungryMessage} and ${HP_message}'`
+    );
+  } else if (this.fitness <= 5) {
+    console.log(
+      `${this.name} is getting fat! ${this.name} says: '${fatMessage}'`
+    );
+  } else if (this.health <= 15) {
+    console.log(
+      `${this.name} is low on health! ${this.name} says: '${HP_message}'`
+    );
+  } else if (this.hunger >= 7) {
+    console.log(
+      `${this.name} is hungry! ${this.name} says: '${hungryMessage}'`
+    );
   }
 };
 

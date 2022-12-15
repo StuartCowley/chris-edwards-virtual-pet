@@ -100,5 +100,64 @@ const specialAbilities = [
   { name: "Super Reflexes", health: 5, damage: 5 },
 ];
 
+const checkUpMessage = [
+  "Galactic traveler thanks for checking up",
+  "Alien thanks for checking up on me",
+  "Saucer captain thanks for checking up",
+  "Space invader thanks for checking on me",
+  "Interstellar traveler thanks for checking up",
+  "Galactic hero thanks for checking on me",
+  "Saucer being thanks for checking up",
+  "Alien thanks for checking up on me",
+  "Space adventurer thanks for checking up",
+  "Galactic traveler thanks for checking on me",
+];
+
+const tooFat = [
+  "Galactic traveler getting too round",
+  "Alien getting a little space chunky",
+  "Saucer captain getting plump",
+  "Space invader getting thick around the middle",
+  "Interstellar traveler getting space pudgy",
+  "Galactic hero getting a little space hefty",
+  "Saucer being getting space doughy",
+  "Alien feeling space chunky in the tummy",
+  "Space adventurer getting a little space rotund",
+  "Galactic traveler getting a little space portly",
+];
+
+const lowHealthMessage = [
+  "Space bug needs healing nectar",
+  "Galactic traveler in need of tonic",
+  "Saucer being low on health juice",
+  "Alien feeling under the cosmic weather",
+  "Space invader requires health elixir",
+  "Interstellar traveler in need of potion",
+  "Galactic hero requires health potion",
+  "Saucer captain in need of healing brew",
+  "Alien warrior low on health potion",
+  "Space adventurer in need of healing draught",
+];
+
+const needsFood = [
+  "Galactic traveler needs space food",
+  "Alien feeling hangry",
+  "Saucer captain needs space snacks",
+  "Space invader needs space grub",
+  "Interstellar traveler needs space sustenance",
+  "Galactic hero needs space nourishment",
+  "Saucer being needs space vittles",
+  "Alien feeling famished in space",
+  "Space adventurer needs space victuals",
+  "Galactic traveler needs space provisions",
+];
+
 // Export the speciesList array
-module.exports = { speciesList, specialAbilities };
+module.exports = {
+  speciesList,
+  specialAbilities,
+  lowHealthMessage,
+  tooFat,
+  needsFood,
+  checkUpMessage,
+};
