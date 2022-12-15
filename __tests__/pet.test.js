@@ -19,7 +19,7 @@ describe("constructor", () => {
 describe("levelUp", () => {
   it("increments the level by 1", () => {
     const alien = new Alien("Zorg");
-    alien.growUp();
+    alien.levelUp();
     expect(alien.level).toEqual(1);
     expect(alien.hunger).toEqual(5);
     expect(alien.fitness).toEqual(7);
@@ -37,10 +37,16 @@ describe("fly", () => {
 });
 
 describe("feed", () => {
-  it("Decreases the hunger level by 3");
-  const alien = new Alien("Zorg");
-  expect(alien.level).toEqual(1);
-  expect(alien.hunger).toEqual(5);
-  alien.feed();
-  expect(alien.hunger).toEqual(2);
+  it("Decreases the hunger level by 3", () => {
+    // Create an instance of the Alien class
+    const alien = new Alien("Zorg");
+    // Store the initial hunger level
+    const initialHunger = alien.hunger;
+    // Call the feed() method
+    alien.feed();
+
+    // Use the expect() function to check if the hunger level has been
+    // decreased by 3
+    expect(alien.hunger).toEqual(initialHunger - 3);
+  });
 });
