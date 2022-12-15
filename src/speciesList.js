@@ -75,11 +75,6 @@ const speciesList = [
   "Capell",
 ];
 
-// Use a loop to generate 100 random species names and add them to the speciesList array
-for (let i = 0; i < 100; i++) {
-  speciesList.push("Species " + (i + 1));
-}
-
 // 20 starter abilities //
 const specialAbilities = [
   { name: "Acid Spit", damage: 2 },
@@ -106,4 +101,4 @@ const specialAbilities = [
 ];
 
 // Export the speciesList array
-module.exports = speciesList;
+module.exports = { speciesList, specialAbilities };

@@ -1,5 +1,4 @@
-const speciesList = require("./speciesList.js");
-const specialAbilities = require("./speciesList.js").specialAbilities;
+const { speciesList, specialAbilities } = require("./speciesList.js");
 
 // Min and Max Stats //
 
