@@ -12,15 +12,15 @@ describe("constructor", () => {
 
   it("has the starting age of 0", () => {
     const alien = new Alien("Zorg");
-    expect(alien.age).toEqual(0);
+    expect(alien.level).toEqual(0);
   });
 });
 
-describe("growUp", () => {
-  it("increments the age by 1", () => {
+describe("levelUp", () => {
+  it("increments the level by 1", () => {
     const alien = new Alien("Zorg");
     alien.growUp();
-    expect(alien.age).toEqual(1);
+    expect(alien.level).toEqual(1);
     expect(alien.hunger).toEqual(5);
     expect(alien.fitness).toEqual(7);
   });
@@ -29,9 +29,18 @@ describe("growUp", () => {
 describe("fly", () => {
   it("Increases the fitness of the alien by 4", () => {
     const alien = new Alien("Zorg");
-    expect(alien.age).toEqual(1);
-    expect(alien.fitness).toEqual(7);
+    expect(alien.level).toEqual(0);
+    expect(alien.fitness).toEqual(10);
     alien.fly();
     expect(alien.fitness).toEqual(10);
   });
+});
+
+describe("feed", () => {
+  it("Decreases the hunger level by 3");
+  const alien = new Alien("Zorg");
+  expect(alien.level).toEqual(1);
+  expect(alien.hunger).toEqual(5);
+  alien.feed();
+  expect(alien.hunger).toEqual(2);
 });
