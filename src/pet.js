@@ -6,10 +6,10 @@ const {
   needsFood,
   checkUpMessage,
   speciesData,
+  babySayings,
 } = require("./speciesList.js");
 
 // Min and Max Stats //
-
 const MAX_FITNESS = 10;
 const MIN_FITNESS = 0;
 
@@ -210,6 +210,9 @@ Alien.prototype.haveSprog = function (sprogName) {
   );
 
   Alien.prototype.checkBabies = function () {
+    const babyMessage =
+      babySayings[Math.floor(Math.random() * babySayings.length)];
+    console.log(babyMessage);
     console.log(
       this.name +
         "'s children: " +

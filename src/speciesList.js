@@ -162,6 +162,89 @@ const needsFood = [
   "Galactic traveler needs space provisions",
 ];
 
+const babySayings = [
+  {
+    Burp: "I'm a little alien, short and stout!",
+    Mood: "happy",
+  },
+  {
+    Burp: "I may be small, but I have big dreams!",
+    Mood: "determined",
+  },
+  {
+    Burp: "I come in peace... mostly.",
+    Mood: "mischievous",
+  },
+  {
+    Burp: "Don't mind me, I'm just a baby alien learning the ropes.",
+    Mood: "innocent",
+  },
+  {
+    Burp: "I may be small, but I have a big appetite!",
+    Mood: "hungry",
+  },
+  {
+    Burp: "I may not be able to fly yet, but I'll crawl my way to the top!",
+    Mood: "determined",
+  },
+  {
+    Burp: "I may not be able to speak your language, but I can still make weird noises.",
+    Mood: "playful",
+  },
+  {
+    Burp: "I may be small, but I have a big personality!",
+    Mood: "confident",
+  },
+  {
+    Burp: "I may not be able to walk yet, but I can still wiggle my way around.",
+    Mood: "playful",
+  },
+  {
+    Burp: "I may be just a baby, but I still have a lot to learn.",
+    Mood: "curious",
+  },
+  {
+    Burp: "I may not be able to understand you, but I can still give you a big alien hug!",
+    Mood: "affectionate",
+  },
+  {
+    Burp: "I may not be able to talk yet, but I can still communicate with my big alien eyes.",
+    Mood: "curious",
+  },
+  {
+    Burp: "I may be a baby, but I still have a lot of energy to burn!",
+    Mood: "energetic",
+  },
+  {
+    Burp: "I may not be able to do much yet, but I'm still a little alien with a lot of potential!",
+    Mood: "determined",
+  },
+  {
+    Burp: "I may be small, but I have a big alien brain and I'm always thinking!",
+    Mood: "intelligent",
+  },
+  {
+    Burp: "I may not be able to talk yet, but I can still make a lot of noise!",
+    Mood: "noisy",
+  },
+  {
+    Burp: "I may be just a baby, but I still have a lot of love to give!",
+    Mood: "affectionate",
+  },
+  {
+    Burp: "I may not be able to do much yet, but I'm still a little alien on the rise!",
+    Mood: "determined",
+  },
+  {
+    Burp: "I may be small, but I have a big alien heart and I'm always ready to play!",
+    Mood: "playful",
+  },
+  {
+    Burp: "I may not be able to walk yet, but I can still crawl my way to adventure!",
+    Mood: "adventurous",
+  },
+];
+
 // Export the speciesList array
 module.exports = {
   speciesList,
@@ -171,4 +254,5 @@ module.exports = {
   needsFood,
   checkUpMessage,
   speciesData,
+  babySayings,
 };
