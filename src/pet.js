@@ -9,14 +9,14 @@ const {
   babySayings,
 } = require("./speciesList.js");
 
+const { MIN_XP_BY_LEVEL, MAX_XP_BY_LEVEL, MAX_LEVEL } = require("./levels.js");
+
 // Min and Max Stats //
 const MAX_FITNESS = 10;
 const MIN_FITNESS = 0;
 
 const MAX_HUNGER = 20;
 const MIN_HUNGER = 0;
-
-const MAX_LEVEL = 50;
 
 function Alien(name) {
   this.name = name;
@@ -39,8 +39,15 @@ Alien.prototype.isAlive = function () {
 };
 
 Alien.prototype.levelUp = function () {
-  // Increment the level property by 1
-  this.level++;
+  // Check level against the xp //
+  let minXP = MIN_XP_BY_LEVEL[this.level + 1];
+  let maxXP = MAX_XP_BY_LEVEL[this.level];
+  // Check if the player has enough XP to reach the next level
+  if (this.XP >= minXP && this.XP < maxXP)
+    else console.log( "Sorry, earthling. You do not have enough XP to reach the next level. Keep playing and serve your alien overlords better next time!");
+"));
+    // Increment the level property by 1
+    this.level++;
   // Decrement the fitness property by 3
   this.fitness -= 3;
 
@@ -193,6 +200,12 @@ Alien.prototype.checkUp = function () {
 };
 
 Alien.prototype.haveSprog = function (sprogName) {
+  if (this.level < 15) {
+    console.log(
+      this.name + " is too young to be able to have a baby! Level Up!"
+    );
+    return;
+  }
   const baby = new Alien(sprogName);
   baby.health = Math.floor(this.health / 3);
   baby.fitness = Math.floor(this.fitness / 3);
@@ -209,16 +222,15 @@ Alien.prototype.haveSprog = function (sprogName) {
       baby.hunger
   );
 
-  Alien.prototype.checkBabies = function () {
-    const babyMessage =
-      babySayings[Math.floor(Math.random() * babySayings.length)];
-    console.log(babyMessage);
-    console.log(
-      this.name +
-        "'s children: " +
-        this.children.map((child) => child.name).join(", ")
-    );
-  };
+  Alien.prototype.checkBabies = function () {};
+  const babyMessage =
+    babySayings[Math.floor(Math.random() * babySayings.length)];
+  console.log(babyMessage);
+  console.log(
+    this.name +
+      "'s children: " +
+      this.children.map((child) => child.name).join(", ")
+  );
 };
 
 // Export the Alien class
