@@ -192,14 +192,30 @@ Alien.prototype.checkUp = function () {
   }
 };
 
-Alien.prototype.haveSprog = function () {
-  const baby = new Alien(this.name + "'s baby");
+Alien.prototype.haveSprog = function (sprogName) {
+  const baby = new Alien(sprogName);
   baby.health = Math.floor(this.health / 3);
   baby.fitness = Math.floor(this.fitness / 3);
+  baby.hunger = Math.floor(this.hunger / 3);
   this.children.push(baby);
   console.log(
-    this.name + " has had a baby with stats: " + baby.health + baby.fitness
+    this.name +
+      " has had a baby with stats: " +
+      "Health: " +
+      baby.health +
+      " Fitness: " +
+      baby.fitness +
+      " Hunger: " +
+      baby.hunger
   );
+
+  Alien.prototype.checkBabies = function () {
+    console.log(
+      this.name +
+        "'s children: " +
+        this.children.map((child) => child.name).join(", ")
+    );
+  };
 };
 
 // Export the Alien class
