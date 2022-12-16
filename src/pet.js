@@ -1,10 +1,11 @@
 const {
   speciesList,
   specialAbilities,
-  checkUpMessage,
-  tooFat,
   lowHealthMessage,
+  tooFat,
   needsFood,
+  checkUpMessage,
+  speciesData,
 } = require("./speciesList.js");
 
 // Min and Max Stats //
@@ -21,11 +22,12 @@ function Alien(name) {
   this.name = name;
   this.species = speciesList[Math.floor(Math.random() * speciesList.length)];
   this.level = 0;
-  this.health = 100;
+  this.health = speciesData[this.species].health;
   this.XP = 0;
   this.hunger = 0;
-  this.fitness = 10;
-  this.specialAbilities = [];
+  this.fitness = speciesData[this.species].fitness;
+  this.specialAbilities = [speciesData[this.species].ability];
+  this.children = [];
 }
 
 Alien.prototype.isAlive = function () {
@@ -188,6 +190,16 @@ Alien.prototype.checkUp = function () {
       `${this.name} is hungry! ${this.name} says: '${hungryMessage}'`
     );
   }
+};
+
+Alien.prototype.haveSprog = function () {
+  const baby = new Alien(this.name + "'s baby");
+  baby.health = Math.floor(this.health / 3);
+  baby.fitness = Math.floor(this.fitness / 3);
+  this.children.push(baby);
+  console.log(
+    this.name + " has had a baby with stats: " + baby.health + baby.fitness
+  );
 };
 
 // Export the Alien class

@@ -100,6 +100,16 @@ const specialAbilities = [
   { name: "Super Reflexes", health: 5, damage: 5 },
 ];
 
+const speciesData = {};
+
+speciesList.forEach((species) => {
+  const health = Math.floor(Math.random() * 31) + 90; // Generate a random number between 90 and 120
+  const fitness = Math.floor(Math.random() * 9); // Generate a random number between 0 and 8
+  const ability = specialAbilities[Math.floor(Math.random() * 20)]; // Choose a random ability from the specialAbilities array
+
+  speciesData[species] = { health, fitness, ability };
+});
+
 const checkUpMessage = [
   "Galactic traveler thanks for checking up",
   "Alien thanks for checking up on me",
@@ -160,4 +170,5 @@ module.exports = {
   tooFat,
   needsFood,
   checkUpMessage,
+  speciesData,
 };
