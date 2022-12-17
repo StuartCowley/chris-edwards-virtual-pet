@@ -44,8 +44,6 @@ Alien.prototype.levelUp = function () {
   let maxXP = MAX_XP_BY_LEVEL[this.level];
   // Check if the player has enough XP to reach the next level
   if (this.XP >= minXP && this.XP < maxXP)
-    else console.log( "Sorry, earthling. You do not have enough XP to reach the next level. Keep playing and serve your alien overlords better next time!");
-"));
     // Increment the level property by 1
     this.level++;
   // Decrement the fitness property by 3

@@ -1,0 +1,65 @@
+body {
+  background-color: hsl(211.76, 92.73%, 10.78%);
+}
+
+h1 {
+  font-family: "Creepster", cursive;
+  color: hsl(93.8, 61.74%, 77.45%);
+  text-align: center;
+  display: block;
+  margin-top: 3;
+}
+
+p {
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.8rem;
+  color: antiquewhite;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.intro {
+  display: block;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: auto;
+  color: white; /* set text color to white */
+  background-color: hsl(
+    211.76,
+    92.73%,
+    10.78%
+  ); /* set background color to a dark shade of green */
+  border-radius: 10px; /* round the corners of the button */
+  font-family: "Orbitron", sans-serif; /* set the font to a creepy font */
+  padding: 10px 20px; /* add padding to the button */
+  cursor: pointer;
+}
+
+/* add a hover effect to the button */
+button:hover {
+  background-color: hsl(
+    211.76,
+    92.73%,
+    30.78%
+  ); /* set the background color to a lighter shade of green on hover */
+}
+
+.welText {
+  padding: 30px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.alienLogo {
+  margin: auto;
+}
