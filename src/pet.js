@@ -231,5 +231,22 @@ Alien.prototype.haveSprog = function (sprogName) {
   );
 };
 
+$("#typed").typed({
+  strings: ["Hello world.", "Check this out.", "Add any text you like here."],
+  typeSpeed: 100,
+  startDelay: 0,
+  backSpeed: 60,
+  backDelay: 2000,
+  loop: true,
+  cursorChar: "|",
+  contentType: "html",
+});
+
+<p>
+  Are you ready to create and manage your own alien being, level up and unlock
+  new abilities, and raise a family of little alien babies? If so, click the
+  button below to get started!
+</p>;
+
 // Export the Alien class
 module.exports = Alien;
