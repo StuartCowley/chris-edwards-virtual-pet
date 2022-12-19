@@ -21,7 +21,7 @@ const MIN_HUNGER = 0;
 function Alien(name) {
   this.name = name;
   this.species = speciesList[Math.floor(Math.random() * speciesList.length)];
-  this.level = 0;
+  this.level = 20;
   this.health = speciesData[this.species].health;
   this.XP = 0;
   this.hunger = 0;
@@ -31,11 +31,7 @@ function Alien(name) {
 }
 
 Alien.prototype.isAlive = function () {
-  return (
-    this.level < MAX_LEVEL &&
-    this.hunger < MAX_HUNGER &&
-    this.fitness > MIN_FITNESS
-  );
+  return this.level < MAX_LEVEL || this.health === 0;
 };
 
 Alien.prototype.levelUp = function () {
@@ -43,9 +39,12 @@ Alien.prototype.levelUp = function () {
   let minXP = MIN_XP_BY_LEVEL[this.level + 1];
   let maxXP = MAX_XP_BY_LEVEL[this.level];
   // Check if the player has enough XP to reach the next level
-  if (this.XP >= minXP && this.XP < maxXP)
-    // Increment the level property by 1
-    this.level++;
+  if (!this.XP >= minXP || !this.XP < maxXP) {
+    return console.log("Not enough XP to level up");
+  }
+
+  // Increment the level property by 1
+  this.level++;
   // Decrement the fitness property by 3
   this.fitness -= 3;
 
@@ -103,11 +102,13 @@ Alien.prototype.levelUp = function () {
   // If the hunger level is below 0, set it to 0
   if (this.hunger < MIN_HUNGER) {
     this.hunger = MIN_HUNGER;
+    this.health -= 5;
   }
 
   // If the hunger level is above MAX, set it to MAX
   if (this.hunger > MAX_HUNGER) {
     this.hunger = MAX_HUNGER;
+    this.health -= 5;
   }
 };
 Alien.prototype.fly = function () {
@@ -220,33 +221,19 @@ Alien.prototype.haveSprog = function (sprogName) {
       baby.hunger
   );
 
-  Alien.prototype.checkBabies = function () {};
-  const babyMessage =
-    babySayings[Math.floor(Math.random() * babySayings.length)];
-  console.log(babyMessage);
-  console.log(
-    this.name +
-      "'s children: " +
-      this.children.map((child) => child.name).join(", ")
-  );
+  Alien.prototype.checkBabies = function () {
+    const babyMessage =
+      babySayings[Math.floor(Math.random() * babySayings.length)];
+    console.log(babyMessage);
+    console.log(
+      this.name +
+        "'s children: " +
+        this.children.map((child) => child.name).join(", ")
+    );
+  };
 };
 
-$("#typed").typed({
-  strings: ["Hello world.", "Check this out.", "Add any text you like here."],
-  typeSpeed: 100,
-  startDelay: 0,
-  backSpeed: 60,
-  backDelay: 2000,
-  loop: true,
-  cursorChar: "|",
-  contentType: "html",
-});
-
-<p>
-  Are you ready to create and manage your own alien being, level up and unlock
-  new abilities, and raise a family of little alien babies? If so, click the
-  button below to get started!
-</p>;
+// Alien.prototype.fight() = function (opponent) {}
 
 // Export the Alien class
 module.exports = Alien;
